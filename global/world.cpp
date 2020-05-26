@@ -4,7 +4,7 @@
 //init block
 bool computer::World::has_one=false;
 
-computer::World world;
+computer::World world{};//init a global world object;
 
 computer::World::World()
 {

@@ -1,8 +1,11 @@
+#ifndef EVENT
+#define EVENT
 namespace computer
 {
 class Event
 {
 public:
-    void act();
+    virtual void act()=0;
 };
 }
+#endif
