@@ -1,0 +1,5 @@
+project = "my_computer"
+copyright = "2020, paohui"
+author = "paohui"
+language="zh_CN"
+html_theme="alabaster"

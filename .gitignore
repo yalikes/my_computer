@@ -1,3 +1,4 @@
 *.exe
 *.dblite
 .vscode
+doc/_build
