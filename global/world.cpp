@@ -2,9 +2,9 @@
 
 #include"world.h"
 //init block
-bool computer::World::has_one=false;
+bool computer::World::has_one=false;//init value in static memory.
 
-computer::World world{};//init a global world object;
+computer::World world{};//init a global world object, in static memory.
 
 computer::World::World()
 {
@@ -18,4 +18,9 @@ computer::World::World()
 	{
 		has_one=true;
 	}
+}
+
+void computer::World::run()
+{
+	auto e=event_queue.pop_back();
 }

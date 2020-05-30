@@ -6,10 +6,12 @@
 #include<string>
 namespace computer
 {
+class Gate;
 class Wire
 {
 public:
 	std::vector<std::pair<Gate&,std::string>> next_ports;
+	void change_next_ports();//
 };
 class Gate
 {
