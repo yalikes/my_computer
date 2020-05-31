@@ -4,7 +4,7 @@
 //init block
 bool computer::World::has_one=false;//init value in static memory.
 
-computer::World world{};//init a global world object, in static memory.
+computer::World computer::world{};//init a global world object, in static memory.
 
 computer::World::World()
 {
@@ -19,8 +19,14 @@ computer::World::World()
 		has_one=true;
 	}
 }
+void computer::World::push_event(std::shared_ptr<Event> e)
+{
+	event_queue.push_back(e);
+}
 
 void computer::World::run()
 {
-	auto e=event_queue.pop_back();
+	std::shared_ptr<Event> e=event_queue.back();
+	event_queue.pop_back();
+	e->act();
 }

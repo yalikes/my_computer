@@ -1,1 +1,5 @@
-Program(["main.cpp","../global/world.cpp"])
+Program(["main.cpp",
+"../global/world.cpp",
+"../gates/print_gate.cpp"
+])
+

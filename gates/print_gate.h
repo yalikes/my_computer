@@ -1,5 +1,6 @@
 #ifndef PRINT_GATE
 #define PRINT_GATE
+#include<memory>
 #include"implement_gate.h"
 
 namespace computer
@@ -7,6 +8,8 @@ namespace computer
 class PrintGate: public  Gate
 {
 public:
+    PrintGate();
+    ~PrintGate();
     void set_port_value(std::string port_name,bool value) override;
 
     /*
@@ -19,6 +22,8 @@ class PrintGateEvent: public Event
 {
 public:
     void act() override;
+private:
+    std::shared_ptr<PrintGate> owner;
 };
 }
 #endif

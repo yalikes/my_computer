@@ -1,10 +1,15 @@
 #include<iostream>
-#include"../gates/and_gate.h"
+
+#include"../gates/print_gate.h"
 #include"../global/world.h"
+#include"start.h"
 
 int main()
 {
 	using namespace std;
 	using namespace computer;
-	AndGate and_gate;
+	shared_ptr<PrintGate> my_print_gate{new PrintGate};
+	shared_ptr<StartEvent> se{new StartEvent{my_print_gate}};
+	world.push_event(se);
+	world.run();
 }
