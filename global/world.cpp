@@ -26,7 +26,11 @@ void computer::World::push_event(std::shared_ptr<Event> e)
 
 void computer::World::run()
 {
-	std::shared_ptr<Event> e=event_queue.back();
-	event_queue.pop_back();
-	e->act();
+	while(!event_queue.empty())
+	{
+		std::shared_ptr<Event> e=event_queue.back();
+		event_queue.pop_back();
+		e->act();
+	}
+	std::cout<<"ends."<<std::endl;
 }

@@ -21,9 +21,10 @@ public:
 class PrintGateEvent: public Event
 {
 public:
+    PrintGateEvent(PrintGate* owner_p);
     void act() override;
 private:
-    std::shared_ptr<PrintGate> owner;
+    PrintGate* owner;
 };
 }
 #endif

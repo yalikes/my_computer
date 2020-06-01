@@ -25,6 +25,8 @@ void computer::PrintGate::set_port_value(std::string port_name, bool value)
         if(port_map["in_1"])
         {
             std::cout<<"print_gate output on."<<std::endl;
+            std::shared_ptr<PrintGateEvent> pge{new PrintGateEvent{this}};
+            world.push_event(pge);
         }
         else
         {
@@ -37,3 +39,6 @@ bool computer::PrintGate::get_port_value(std::string port_name)
 {
     return false;
 }
+
+computer::PrintGateEvent::PrintGateEvent(PrintGate* owner_p)
+:owner{owner_p}{}
