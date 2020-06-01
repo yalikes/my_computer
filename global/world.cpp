@@ -21,15 +21,16 @@ computer::World::World()
 }
 void computer::World::push_event(std::shared_ptr<Event> e)
 {
-	event_queue.push_back(e);
+	event_queue.push(e);
 }
 
 void computer::World::run()
 {
 	while(!event_queue.empty())
 	{
-		std::shared_ptr<Event> e=event_queue.back();
-		event_queue.pop_back();
+		std::shared_ptr<Event> e=event_queue.top();
+		event_queue.pop();
+		//TODO minus remain time for all remaining event
 		e->act();
 	}
 	std::cout<<"ends."<<std::endl;

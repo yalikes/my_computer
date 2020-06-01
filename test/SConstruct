@@ -1,5 +1,6 @@
 Program(["main.cpp",
 "../global/world.cpp",
-"../gates/print_gate.cpp"
+"../gates/print_gate.cpp",
+"../gates/gate.cpp"
 ])
 

@@ -1,7 +1,7 @@
 #ifndef WORLD
 #define WORLD
 
-#include<vector>
+#include<queue>
 #include<memory>
 #include"../event/event.h"
 
@@ -15,7 +15,9 @@ public:
 	void push_event(std::shared_ptr<Event> event);
 	void run();
 private:
-	std::vector<std::shared_ptr<Event>> event_queue;
+	std::priority_queue<std::shared_ptr<Event>,
+						std::vector<std::shared_ptr<Event>>,
+						std::less<std::shared_ptr<Event>>> event_queue;
 };
 
 extern World world;

@@ -3,5 +3,6 @@
 
 #include"gate.h"
 #include"../event/event.h"
+#include"../global/world.h"
 
 #endif
