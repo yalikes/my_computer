@@ -9,7 +9,6 @@ class BufferGate: public Gate
 public:
     BufferGate();
     void set_port_value(std::string port_name,bool value) override;
-    bool get_port_value(std::string port_name) override;
 };
 class BufferGateEvent: public Event
 {

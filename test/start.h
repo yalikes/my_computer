@@ -6,7 +6,7 @@
 class StartEvent: public computer::Event
 {
 public:
-    StartEvent(computer::PrintGate* gate_ptr)
+    StartEvent(computer::Gate* gate_ptr)
     {
         owner=gate_ptr;
     }
@@ -16,5 +16,5 @@ public:
     }
     long long int remain_time=1000;
 private:
-    computer::PrintGate* owner;
+    computer::Gate* owner;
 };

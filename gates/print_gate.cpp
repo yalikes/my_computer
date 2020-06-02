@@ -5,16 +5,16 @@
 void computer::PrintGateEvent::act()
 {
     using namespace std;
-    cout<<"hi! I was activate!"<<endl;
+    cout<<owner->message<<endl;
 }
 
-computer::PrintGate::PrintGate()
+computer::PrintGate::PrintGate(std::string message_p)
+:message{message_p}
 {
     port_map["in_1"]=false;
 }
 computer::PrintGate::~PrintGate()
 {
-    std::cout<<"PrintGate was delete"<<std::endl;
 }
 
 void computer::PrintGate::set_port_value(std::string port_name, bool value)
@@ -24,13 +24,8 @@ void computer::PrintGate::set_port_value(std::string port_name, bool value)
         port_map["in_1"]=value;
         if(port_map["in_1"])
         {
-            std::cout<<"print_gate output on."<<std::endl;
             std::shared_ptr<PrintGateEvent> pge{new PrintGateEvent{this}};
             world.push_event(pge);
-        }
-        else
-        {
-            std::cout<<"print_gate output off"<<std::endl;
         }
     }
 }

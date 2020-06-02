@@ -8,7 +8,7 @@ namespace computer
 class PrintGate: public  Gate
 {
 public:
-    PrintGate();
+    PrintGate(std::string message_p="");
     ~PrintGate();
     void set_port_value(std::string port_name,bool value) override;
 
@@ -17,6 +17,7 @@ public:
     always return false;
     */
     bool get_port_value(std::string port_name) override;
+    std::string message;
 };
 class PrintGateEvent: public Event
 {
