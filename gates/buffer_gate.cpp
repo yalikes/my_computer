@@ -4,6 +4,7 @@ computer::BufferGate::BufferGate()
 {
     port_map["in_1"]=false;
     port_map["out_1"]=false;
+    output_port_map["out_1"]=Wire{};
 }
 
 void computer::BufferGate::set_port_value(std::string port_name, bool value)

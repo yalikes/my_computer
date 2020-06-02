@@ -1,8 +1,7 @@
 #ifndef AND_GATE
 #define AND_GATE
 
-#include"gate.h"
-#include"../event/event.h"
+#include"implement_gate.h"
 
 namespace computer
 {
@@ -10,16 +9,17 @@ class AndGate:public Gate
 {
 public:
     AndGate();
-    bool get_port_value(std::string port_name) override;
     void set_port_value(std::string port_name,bool value) override;
 };
-class AndGateActiveEvent:public Event
+class AndGateEvent:public Event
 {
 public:
-    AndGateActiveEvent(AndGate& owner);
+    enum class Mode{T,F};
+    AndGateEvent(AndGate* owner_p,bool mode_p);
     void act() override;
 private:
-    AndGate& owner;
+    AndGate* owner;
+    Mode mode;
 };
 }
 
