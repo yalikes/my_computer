@@ -1,8 +1,7 @@
+gates=["../gates/and_gate.cpp",
+	"../gates/buffer_gate.cpp",
+	"../gates/print_gate.cpp",
+	"../gates/gate.cpp"]
 Program(["main.cpp",
-"../global/world.cpp",
-"../gates/print_gate.cpp",
-"../gates/gate.cpp",
-"../gates/buffer_gate.cpp",
-"../gates/and_gate.cpp"
-])
+"../global/world.cpp"]+gates)
 

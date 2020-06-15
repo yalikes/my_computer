@@ -1,5 +1,5 @@
 #include<iostream>
-
+#include<thread>
 #include"world.h"
 //init block
 bool computer::World::has_one=false;//init value in static memory.
@@ -28,10 +28,19 @@ void computer::World::run()
 {
 	while(!event_queue.empty())
 	{
+		std::unique_lock<std::mutex> clk{world.queue_m};//get lock here,pop a event then release it
+
 		std::shared_ptr<Event> e=event_queue.top();
 		event_queue.pop();
+
+		clk.unlock();
 		//TODO minus remain time for all remaining event
 		e->act();
 	}
 	std::cout<<"ends."<<std::endl;
+}
+
+void computer::World::set_running_mode(RunningMode m)
+{
+	running_mode = m;
 }
