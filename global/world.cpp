@@ -33,6 +33,9 @@ void computer::World::run()
 		std::shared_ptr<Event> e=event_queue.top();
 		event_queue.pop();
 
+		int remain_time=e->remain_time;
+		
+
 		clk.unlock();
 		//TODO minus remain time for all remaining event
 		e->act();

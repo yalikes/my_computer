@@ -1,0 +1,8 @@
+gates=[
+	"./gate.cpp",
+	"./print_gate.cpp",
+	"./and_gate.cpp",
+	"./buffer_gate.cpp"
+]
+lib=Library("gate",gates)
+Return("lib")

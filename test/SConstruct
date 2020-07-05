@@ -1,7 +1,3 @@
-gates=["../gates/and_gate.cpp",
-	"../gates/buffer_gate.cpp",
-	"../gates/print_gate.cpp",
-	"../gates/gate.cpp"]
+libgate=SConscript(["../gates/SConscript"])
 Program(["main.cpp",
-"../global/world.cpp"]+gates)
-
+"../global/world.cpp"]+libgate)
